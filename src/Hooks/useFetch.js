@@ -3,13 +3,15 @@ import {useState, useEffect, useRef} from 'react'
 export const UseFetch = (url) => {
     
     const isMounted= useRef(true);
+
+    //console.log(isMounted);
     const [state, setState] = useState({data:null, loading:true, error:null});
 
 
 
     useEffect(()=>{
         isMounted.current=false
-    })
+    },[])
 
 
     //Cuando va a cambiar la url
@@ -19,11 +21,11 @@ export const UseFetch = (url) => {
         fetch(url)
             .then(res => res.json())
             .then(data =>{
-
+                //console.log(data);
                 setTimeout(() => {
 
 
-                    if(isMounted.current){
+                   
 
                         setState({
 
@@ -35,9 +37,7 @@ export const UseFetch = (url) => {
         
                         })
 
-                    }else{
-                        console.log('setState no se llamo');
-                    }
+                   
 
                     
                     

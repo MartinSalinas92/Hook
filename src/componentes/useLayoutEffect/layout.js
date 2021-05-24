@@ -8,13 +8,13 @@ export const Layout = () => {
 
    const {data}=UseFetch(`https://www.breakingbadapi.com/api/quotes/${state}`);
 
-   //console.log(loading, data);
+   console.log(data);
                             //!!data && data[0] es un condicional que si se evalua va a venir en la posicion 0
     const {author, quote}=!!data && data[0];
 
     return (
         <div>
-            <h1> Custom Hook!!!</h1>
+            <h1> LayoutEffect</h1>
             <hr />
 
            
@@ -27,7 +27,7 @@ export const Layout = () => {
                     <footer className="blockquote-footer">{author} </footer>
 
                 </blockquote>
-                )
+                
 
             
 
